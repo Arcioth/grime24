@@ -1,0 +1,177 @@
+grime24  2.4 GHz channel scorer  (receive only, no transmit)
+source   /home/arcioth/Documents/hack24tron/logs/sweeps.jsonl
+sweeps   6   stamp 20260928
+gain     LNA 24 dB  VGA 20 dB  amp 0  bin_hz 1000000  (uncalibrated dB, not dBm)
+band     2400–2484 MHz   channels 1–13   mask center±10 MHz, clipped to the band
+floor    median of bins outside every Wi-Fi mask (else quietest 20% of bins)
+rules    occupancy: share of in-mask bins > floor+8 dB; parasite: run < 3 MHz and > in-band median+12 dB; barrage: occupancy >= 0.50 and in-band median > floor+10 dB; busy: a >= 3 MHz hot run, or occupancy >= 0.25, and not the cases above
+hits     18 parasite, 11 busy, 0 barrage across 6 sweeps (overlapping masks, so one spike counts on each channel it covers). median spectrum is quiet on every channel.
+
+median spectrum (bin-wise median of the sweeps, then scored)
+floor -61.66 dB via outside_masks (n_outside 4); quietest 20% -65.76 dB (stored, not used while outside bins exist)
+ch   MHz    floor     med    peak    occ  parasite            label
+--  ----  -------  ------  ------  -----  ------------------  -----
+ 1  2412   -61.66  -62.01  -56.97   0.00  -                   quiet
+ 2  2417   -61.66  -62.01  -56.97   0.00  -                   quiet
+ 3  2422   -61.66  -61.66  -55.16   0.00  -                   quiet
+ 4  2427   -61.66  -61.37  -55.16   0.00  -                   quiet
+ 5  2432   -61.66  -58.91  -55.16   0.00  -                   quiet
+ 6  2437   -61.66  -57.98  -53.77   0.00  -                   quiet
+ 7  2442   -61.66  -57.98  -53.77   0.00  -                   quiet
+ 8  2447   -61.66  -60.80  -53.77   0.00  -                   quiet
+ 9  2452   -61.66  -63.04  -53.77   0.00  -                   quiet
+10  2457   -61.66  -63.59  -56.98   0.00  -                   quiet
+11  2462   -61.66  -64.11  -56.98   0.00  -                   quiet
+12  2467   -61.66  -64.47  -56.98   0.00  -                   quiet
+13  2472   -61.66  -64.56  -60.50   0.00  -                   quiet
+
+per-sweep labels (median column is the spectrum above, not a vote)
+ch  s0          s1          s2          s3          s4          s5          median
+ 1  quiet      quiet      parasite   quiet      parasite   busy       quiet
+ 2  quiet      quiet      parasite   parasite   parasite   busy       quiet
+ 3  quiet      quiet      parasite   parasite   parasite   busy       quiet
+ 4  quiet      quiet      parasite   quiet      quiet      busy       quiet
+ 5  quiet      quiet      busy       quiet      busy       busy       quiet
+ 6  quiet      quiet      busy       quiet      parasite   busy       quiet
+ 7  quiet      quiet      quiet      quiet      parasite   busy       quiet
+ 8  quiet      quiet      quiet      quiet      parasite   busy       quiet
+ 9  quiet      quiet      quiet      quiet      parasite   parasite   quiet
+10  quiet      quiet      quiet      quiet      quiet      quiet      quiet
+11  quiet      quiet      quiet      quiet      quiet      quiet      quiet
+12  parasite   quiet      parasite   quiet      quiet      parasite   quiet
+13  quiet      quiet      parasite   quiet      quiet      quiet      quiet
+
+non-quiet hits
+  s0 20260928T191205Z  ch 12  parasite  peak  -51.05 at 2459  med  -65.14  occ 0.10  parasite 2459 (1 MHz)
+  s2 20260928T191205Z  ch  1  parasite  peak  -44.89 at 2417  med  -61.90  occ 0.14  parasite 2416-2417 (2 MHz)
+  s2 20260928T191205Z  ch  2  parasite  peak  -44.89 at 2417  med  -61.68  occ 0.14  parasite 2416-2417 (2 MHz)
+  s2 20260928T191205Z  ch  3  parasite  peak  -44.89 at 2417  med  -59.61  occ 0.38  parasite 2416-2417 (2 MHz)
+  s2 20260928T191205Z  ch  4  parasite  peak  -44.89 at 2417  med  -58.83  occ 0.38  parasite 2417 (1 MHz)
+  s2 20260928T191205Z  ch  5  busy      peak  -49.45 at 2430  med  -55.89  occ 0.38  parasite -
+  s2 20260928T191205Z  ch  6  busy      peak  -49.45 at 2430  med  -55.71  occ 0.38  parasite -
+  s2 20260928T191205Z  ch 12  parasite  peak  -43.09 at 2475  med  -67.13  occ 0.10  parasite 2475-2476 (2 MHz)
+  s2 20260928T191205Z  ch 13  parasite  peak  -43.09 at 2475  med  -68.71  occ 0.10  parasite 2475-2476 (2 MHz)
+  s3 20260928T191206Z  ch  2  parasite  peak  -51.35 at 2415  med  -63.77  occ 0.19  parasite 2415 (1 MHz)
+  s3 20260928T191206Z  ch  3  parasite  peak  -51.35 at 2415  med  -65.65  occ 0.10  parasite 2415-2416 (2 MHz)
+  s4 20260928T191206Z  ch  1  parasite  peak  -45.80 at 2412  med  -62.86  occ 0.19  parasite 2411-2412 (2 MHz)
+  s4 20260928T191206Z  ch  2  parasite  peak  -45.80 at 2412  med  -62.82  occ 0.19  parasite 2411-2412 (2 MHz)
+  s4 20260928T191206Z  ch  3  parasite  peak  -45.80 at 2412  med  -62.82  occ 0.10  parasite 2412 (1 MHz)
+  s4 20260928T191206Z  ch  5  busy      peak  -50.50 at 2433  med  -57.03  occ 0.29  parasite -
+  s4 20260928T191206Z  ch  6  parasite  peak  -43.04 at 2445  med  -55.05  occ 0.43  parasite 2445 (1 MHz)
+  s4 20260928T191206Z  ch  7  parasite  peak  -43.04 at 2445  med  -56.13  occ 0.43  parasite 2445 (1 MHz)
+  s4 20260928T191206Z  ch  8  parasite  peak  -43.04 at 2445  med  -56.91  occ 0.38  parasite 2445 (1 MHz)
+  s4 20260928T191206Z  ch  9  parasite  peak  -43.04 at 2445  med  -60.18  occ 0.24  parasite 2445 (1 MHz)
+  s5 20260928T191206Z  ch  1  busy      peak  -34.58 at 2406  med  -60.44  occ 0.48  parasite -  wide 2405-2409 (5 MHz), 2415-2419 (5 MHz)
+  s5 20260928T191206Z  ch  2  busy      peak  -36.58 at 2408  med  -61.58  occ 0.38  parasite -  wide 2407-2409 (3 MHz), 2415-2419 (5 MHz)
+  s5 20260928T191206Z  ch  3  busy      peak  -37.35 at 2416  med  -60.95  occ 0.29  parasite 2432 (1 MHz)  wide 2415-2419 (5 MHz)
+  s5 20260928T191206Z  ch  4  busy      peak  -29.19 at 2435  med  -54.65  occ 0.38  parasite 2417-2418 (2 MHz)  wide 2435-2437 (3 MHz)
+  s5 20260928T191206Z  ch  5  busy      peak  -27.96 at 2438  med  -57.46  occ 0.33  parasite 2432-2433 (2 MHz)  wide 2435-2439 (5 MHz)
+  s5 20260928T191206Z  ch  6  busy      peak  -27.96 at 2438  med  -54.23  occ 0.38  parasite 2445 (1 MHz)  wide 2435-2439 (5 MHz)
+  s5 20260928T191206Z  ch  7  busy      peak  -27.96 at 2438  med  -55.09  occ 0.38  parasite 2445 (1 MHz)  wide 2435-2439 (5 MHz)
+  s5 20260928T191206Z  ch  8  busy      peak  -27.96 at 2438  med  -58.64  occ 0.19  parasite 2445 (1 MHz)  wide 2437-2439 (3 MHz)
+  s5 20260928T191206Z  ch  9  parasite  peak  -36.22 at 2445  med  -59.05  occ 0.10  parasite 2445 (1 MHz)
+  s5 20260928T191206Z  ch 12  parasite  peak  -51.35 at 2459  med  -64.11  occ 0.05  parasite 2459 (1 MHz)
+
+per-sweep detail
+
+sweep 0  20260928T191205Z  floor -64.28 dB (outside_masks, n_outside 4)  quietest20 -71.95 dB
+ch   MHz    floor     med    peak    occ  parasite            label
+--  ----  -------  ------  ------  -----  ------------------  -----
+ 1  2412   -64.28  -60.17  -52.61   0.14  -                   quiet
+ 2  2417   -64.28  -61.49  -52.61   0.10  -                   quiet
+ 3  2422   -64.28  -63.35  -52.61   0.05  -                   quiet
+ 4  2427   -64.28  -63.44  -58.18   0.00  -                   quiet
+ 5  2432   -64.28  -63.94  -58.00   0.00  -                   quiet
+ 6  2437   -64.28  -62.38  -50.75   0.10  -                   quiet
+ 7  2442   -64.28  -62.28  -50.75   0.10  -                   quiet
+ 8  2447   -64.28  -60.50  -50.75   0.10  -                   quiet
+ 9  2452   -64.28  -60.46  -50.75   0.19  -                   quiet
+10  2457   -64.28  -60.50  -51.05   0.14  -                   quiet
+11  2462   -64.28  -61.76  -51.05   0.10  -                   quiet
+12  2467   -64.28  -65.14  -51.05   0.10  2459 (1 MHz)        parasite
+13  2472   -64.28  -67.25  -58.77   0.00  -                   quiet
+
+sweep 1  20260928T191205Z  floor -61.43 dB (outside_masks, n_outside 4)  quietest20 -69.38 dB
+ch   MHz    floor     med    peak    occ  parasite            label
+--  ----  -------  ------  ------  -----  ------------------  -----
+ 1  2412   -61.43  -63.45  -54.31   0.00  -                   quiet
+ 2  2417   -61.43  -61.86  -56.11   0.00  -                   quiet
+ 3  2422   -61.43  -60.58  -55.26   0.00  -                   quiet
+ 4  2427   -61.43  -59.92  -55.26   0.00  -                   quiet
+ 5  2432   -61.43  -57.74  -52.92   0.05  -                   quiet
+ 6  2437   -61.43  -57.12  -52.92   0.05  -                   quiet
+ 7  2442   -61.43  -58.59  -52.92   0.05  -                   quiet
+ 8  2447   -61.43  -61.13  -52.92   0.05  -                   quiet
+ 9  2452   -61.43  -63.97  -56.10   0.00  -                   quiet
+10  2457   -61.43  -65.64  -56.10   0.00  -                   quiet
+11  2462   -61.43  -65.96  -56.10   0.00  -                   quiet
+12  2467   -61.43  -65.90  -58.40   0.00  -                   quiet
+13  2472   -61.43  -65.03  -60.02   0.00  -                   quiet
+
+sweep 2  20260928T191205Z  floor -63.41 dB (outside_masks, n_outside 4)  quietest20 -71.67 dB
+ch   MHz    floor     med    peak    occ  parasite            label
+--  ----  -------  ------  ------  -----  ------------------  -----
+ 1  2412   -63.41  -61.90  -44.89   0.14  2416-2417 (2 MHz)   parasite
+ 2  2417   -63.41  -61.68  -44.89   0.14  2416-2417 (2 MHz)   parasite
+ 3  2422   -63.41  -59.61  -44.89   0.38  2416-2417 (2 MHz)   parasite
+ 4  2427   -63.41  -58.83  -44.89   0.38  2417 (1 MHz)        parasite
+ 5  2432   -63.41  -55.89  -49.45   0.38  -                   busy
+ 6  2437   -63.41  -55.71  -49.45   0.38  -                   busy
+ 7  2442   -63.41  -59.60  -51.21   0.19  -                   quiet
+ 8  2447   -63.41  -62.75  -51.21   0.14  -                   quiet
+ 9  2452   -63.41  -63.86  -55.54   0.00  -                   quiet
+10  2457   -63.41  -66.19  -57.75   0.00  -                   quiet
+11  2462   -63.41  -66.57  -57.75   0.00  -                   quiet
+12  2467   -63.41  -67.13  -43.09   0.10  2475-2476 (2 MHz)   parasite
+13  2472   -63.41  -68.71  -43.09   0.10  2475-2476 (2 MHz)   parasite
+
+sweep 3  20260928T191206Z  floor -63.98 dB (outside_masks, n_outside 4)  quietest20 -71.34 dB
+ch   MHz    floor     med    peak    occ  parasite            label
+--  ----  -------  ------  ------  -----  ------------------  -----
+ 1  2412   -63.98  -62.70  -51.35   0.19  -                   quiet
+ 2  2417   -63.98  -63.77  -51.35   0.19  2415 (1 MHz)        parasite
+ 3  2422   -63.98  -65.65  -51.35   0.10  2415-2416 (2 MHz)   parasite
+ 4  2427   -63.98  -65.31  -56.72   0.00  -                   quiet
+ 5  2432   -63.98  -65.31  -56.72   0.00  -                   quiet
+ 6  2437   -63.98  -63.31  -56.72   0.00  -                   quiet
+ 7  2442   -63.98  -63.30  -56.72   0.00  -                   quiet
+ 8  2447   -63.98  -63.77  -56.77   0.00  -                   quiet
+ 9  2452   -63.98  -65.34  -56.77   0.00  -                   quiet
+10  2457   -63.98  -65.33  -57.22   0.00  -                   quiet
+11  2462   -63.98  -63.70  -57.22   0.00  -                   quiet
+12  2467   -63.98  -63.23  -57.22   0.00  -                   quiet
+13  2472   -63.98  -62.42  -57.22   0.00  -                   quiet
+
+sweep 4  20260928T191206Z  floor -62.28 dB (outside_masks, n_outside 4)  quietest20 -67.57 dB
+ch   MHz    floor     med    peak    occ  parasite            label
+--  ----  -------  ------  ------  -----  ------------------  -----
+ 1  2412   -62.28  -62.86  -45.80   0.19  2411-2412 (2 MHz)   parasite
+ 2  2417   -62.28  -62.82  -45.80   0.19  2411-2412 (2 MHz)   parasite
+ 3  2422   -62.28  -62.82  -45.80   0.10  2412 (1 MHz)        parasite
+ 4  2427   -62.28  -62.07  -50.50   0.14  -                   quiet
+ 5  2432   -62.28  -57.03  -50.50   0.29  -                   busy
+ 6  2437   -62.28  -55.05  -43.04   0.43  2445 (1 MHz)        parasite
+ 7  2442   -62.28  -56.13  -43.04   0.43  2445 (1 MHz)        parasite
+ 8  2447   -62.28  -56.91  -43.04   0.38  2445 (1 MHz)        parasite
+ 9  2452   -62.28  -60.18  -43.04   0.24  2445 (1 MHz)        parasite
+10  2457   -62.28  -61.84  -53.94   0.05  -                   quiet
+11  2462   -62.28  -61.84  -53.94   0.05  -                   quiet
+12  2467   -62.28  -63.75  -55.37   0.00  -                   quiet
+13  2472   -62.28  -63.75  -55.37   0.00  -                   quiet
+
+sweep 5  20260928T191206Z  floor -60.75 dB (outside_masks, n_outside 4)  quietest20 -69.56 dB
+ch   MHz    floor     med    peak    occ  parasite            label
+--  ----  -------  ------  ------  -----  ------------------  -----
+ 1  2412   -60.75  -60.44  -34.58   0.48  -                   busy
+ 2  2417   -60.75  -61.58  -36.58   0.38  -                   busy
+ 3  2422   -60.75  -60.95  -37.35   0.29  2432 (1 MHz)        busy
+ 4  2427   -60.75  -54.65  -29.19   0.38  2417-2418 (2 MHz)   busy
+ 5  2432   -60.75  -57.46  -27.96   0.33  2432-2433 (2 MHz)   busy
+ 6  2437   -60.75  -54.23  -27.96   0.38  2445 (1 MHz)        busy
+ 7  2442   -60.75  -55.09  -27.96   0.38  2445 (1 MHz)        busy
+ 8  2447   -60.75  -58.64  -27.96   0.19  2445 (1 MHz)        busy
+ 9  2452   -60.75  -59.05  -36.22   0.10  2445 (1 MHz)        parasite
+10  2457   -60.75  -60.38  -51.35   0.05  -                   quiet
+11  2462   -60.75  -61.54  -51.35   0.05  -                   quiet
+12  2467   -60.75  -64.11  -51.35   0.05  2459 (1 MHz)        parasite
+13  2472   -60.75  -63.68  -56.20   0.00  -                   quiet

@@ -1,0 +1,2806 @@
+{
+  "tool": "grime24",
+  "version": "0.1.0",
+  "role": "receiver-side scorer",
+  "source": "/home/arcioth/Documents/hack24tron/logs/sweeps.jsonl",
+  "stamp": "20260928",
+  "n_sweeps": 6,
+  "band_mhz": [
+    2400.0,
+    2484.0
+  ],
+  "gain_uniform": true,
+  "thresholds": {
+    "channels": [
+      1,
+      13
+    ],
+    "mask_half_mhz": 10.0,
+    "occupancy_above_floor_db": 8.0,
+    "parasite_above_inband_median_db": 12.0,
+    "parasite_narrower_than_mhz": 3.0,
+    "barrage_inband_median_above_floor_db": 10.0,
+    "barrage_occupancy_min": 0.5,
+    "busy_occupancy_min": 0.25,
+    "floor": "median of bins outside every channel mask; quietest 20% of bins if none are outside",
+    "label_order": "barrage if occupancy >= 0.50 and in-band median is more than 10 dB above the floor; else busy if a >12 dB run is at least 3 MHz wide; else parasite if a >12 dB run is narrower than 3 MHz; else busy if occupancy >= 0.25; else quiet"
+  },
+  "caveats": [
+    "Uncalibrated HackRF dB at the logged gain, not dBm.",
+    "Channel 1\u201313 masks of 20 MHz overlap, so one spike is scored on every channel that covers it.",
+    "With these masks the only bins outside every mask on a 2400\u20132484 sweep are the band edges.",
+    "A barrage label is wide received energy. A normal transmission during the dwell can have the same shape. This is not an identification of a jammer.",
+    "1 MHz bins do not separate Wi-Fi OFDM, BLE, a microwave, or a spur.",
+    "The median row scores the bin-wise median spectrum. A hit that shows up in one dwell is kept on that sweep and does not have to move the median."
+  ],
+  "sweeps": [
+    {
+      "index": 0,
+      "ts": "20260928T191205Z",
+      "config": {
+        "f_lo": 2400,
+        "f_hi": 2484,
+        "lna_db": 24,
+        "vga_db": 20,
+        "bin_hz": 1000000,
+        "amp": 0,
+        "live_ms": 500,
+        "baseband_mhz": 15.0,
+        "sample_rate_mhz": 20
+      },
+      "duration_ms": 91,
+      "floor_db": -64.28,
+      "floor_method": "outside_masks",
+      "quietest_20_db": -71.95,
+      "n_outside": 4,
+      "outside_bins": [
+        {
+          "mhz": 2400.0,
+          "db": -65.55
+        },
+        {
+          "mhz": 2401.0,
+          "db": -57.09
+        },
+        {
+          "mhz": 2483.0,
+          "db": -66.49
+        },
+        {
+          "mhz": 2484.0,
+          "db": -63.02
+        }
+      ],
+      "bin_step_mhz": 1.0,
+      "n_bins": 85,
+      "channels": [
+        {
+          "ch": 1,
+          "center_mhz": 2412.0,
+          "mask_mhz": [
+            2402.0,
+            2422.0
+          ],
+          "n_bins": 21,
+          "floor_db": -64.28,
+          "inband_median_db": -60.17,
+          "inband_peak_db": -52.61,
+          "inband_peak_mhz": 2412.0,
+          "occupancy": 0.1429,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 2,
+          "center_mhz": 2417.0,
+          "mask_mhz": [
+            2407.0,
+            2427.0
+          ],
+          "n_bins": 21,
+          "floor_db": -64.28,
+          "inband_median_db": -61.49,
+          "inband_peak_db": -52.61,
+          "inband_peak_mhz": 2412.0,
+          "occupancy": 0.0952,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 3,
+          "center_mhz": 2422.0,
+          "mask_mhz": [
+            2412.0,
+            2432.0
+          ],
+          "n_bins": 21,
+          "floor_db": -64.28,
+          "inband_median_db": -63.35,
+          "inband_peak_db": -52.61,
+          "inband_peak_mhz": 2412.0,
+          "occupancy": 0.0476,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 4,
+          "center_mhz": 2427.0,
+          "mask_mhz": [
+            2417.0,
+            2437.0
+          ],
+          "n_bins": 21,
+          "floor_db": -64.28,
+          "inband_median_db": -63.44,
+          "inband_peak_db": -58.18,
+          "inband_peak_mhz": 2424.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 5,
+          "center_mhz": 2432.0,
+          "mask_mhz": [
+            2422.0,
+            2442.0
+          ],
+          "n_bins": 21,
+          "floor_db": -64.28,
+          "inband_median_db": -63.94,
+          "inband_peak_db": -58.0,
+          "inband_peak_mhz": 2439.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 6,
+          "center_mhz": 2437.0,
+          "mask_mhz": [
+            2427.0,
+            2447.0
+          ],
+          "n_bins": 21,
+          "floor_db": -64.28,
+          "inband_median_db": -62.38,
+          "inband_peak_db": -50.75,
+          "inband_peak_mhz": 2445.0,
+          "occupancy": 0.0952,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 7,
+          "center_mhz": 2442.0,
+          "mask_mhz": [
+            2432.0,
+            2452.0
+          ],
+          "n_bins": 21,
+          "floor_db": -64.28,
+          "inband_median_db": -62.28,
+          "inband_peak_db": -50.75,
+          "inband_peak_mhz": 2445.0,
+          "occupancy": 0.0952,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 8,
+          "center_mhz": 2447.0,
+          "mask_mhz": [
+            2437.0,
+            2457.0
+          ],
+          "n_bins": 21,
+          "floor_db": -64.28,
+          "inband_median_db": -60.5,
+          "inband_peak_db": -50.75,
+          "inband_peak_mhz": 2445.0,
+          "occupancy": 0.0952,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 9,
+          "center_mhz": 2452.0,
+          "mask_mhz": [
+            2442.0,
+            2462.0
+          ],
+          "n_bins": 21,
+          "floor_db": -64.28,
+          "inband_median_db": -60.46,
+          "inband_peak_db": -50.75,
+          "inband_peak_mhz": 2445.0,
+          "occupancy": 0.1905,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 10,
+          "center_mhz": 2457.0,
+          "mask_mhz": [
+            2447.0,
+            2467.0
+          ],
+          "n_bins": 21,
+          "floor_db": -64.28,
+          "inband_median_db": -60.5,
+          "inband_peak_db": -51.05,
+          "inband_peak_mhz": 2459.0,
+          "occupancy": 0.1429,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 11,
+          "center_mhz": 2462.0,
+          "mask_mhz": [
+            2452.0,
+            2472.0
+          ],
+          "n_bins": 21,
+          "floor_db": -64.28,
+          "inband_median_db": -61.76,
+          "inband_peak_db": -51.05,
+          "inband_peak_mhz": 2459.0,
+          "occupancy": 0.0952,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 12,
+          "center_mhz": 2467.0,
+          "mask_mhz": [
+            2457.0,
+            2477.0
+          ],
+          "n_bins": 21,
+          "floor_db": -64.28,
+          "inband_median_db": -65.14,
+          "inband_peak_db": -51.05,
+          "inband_peak_mhz": 2459.0,
+          "occupancy": 0.0952,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2459.0,
+              "db": -51.05,
+              "width_mhz": 1.0,
+              "excess_db": 14.09,
+              "bins_mhz": [
+                2459.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2459.0,
+              "db": -51.05,
+              "width_mhz": 1.0,
+              "excess_db": 14.09,
+              "bins_mhz": [
+                2459.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 13,
+          "center_mhz": 2472.0,
+          "mask_mhz": [
+            2462.0,
+            2482.0
+          ],
+          "n_bins": 21,
+          "floor_db": -64.28,
+          "inband_median_db": -67.25,
+          "inband_peak_db": -58.77,
+          "inband_peak_mhz": 2467.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "ts": "20260928T191205Z",
+      "config": {
+        "f_lo": 2400,
+        "f_hi": 2484,
+        "lna_db": 24,
+        "vga_db": 20,
+        "bin_hz": 1000000,
+        "amp": 0,
+        "live_ms": 500,
+        "baseband_mhz": 15.0,
+        "sample_rate_mhz": 20
+      },
+      "duration_ms": 91,
+      "floor_db": -61.43,
+      "floor_method": "outside_masks",
+      "quietest_20_db": -69.38,
+      "n_outside": 4,
+      "outside_bins": [
+        {
+          "mhz": 2400.0,
+          "db": -60.88
+        },
+        {
+          "mhz": 2401.0,
+          "db": -58.76
+        },
+        {
+          "mhz": 2483.0,
+          "db": -62.48
+        },
+        {
+          "mhz": 2484.0,
+          "db": -61.98
+        }
+      ],
+      "bin_step_mhz": 1.0,
+      "n_bins": 85,
+      "channels": [
+        {
+          "ch": 1,
+          "center_mhz": 2412.0,
+          "mask_mhz": [
+            2402.0,
+            2422.0
+          ],
+          "n_bins": 21,
+          "floor_db": -61.43,
+          "inband_median_db": -63.45,
+          "inband_peak_db": -54.31,
+          "inband_peak_mhz": 2405.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 2,
+          "center_mhz": 2417.0,
+          "mask_mhz": [
+            2407.0,
+            2427.0
+          ],
+          "n_bins": 21,
+          "floor_db": -61.43,
+          "inband_median_db": -61.86,
+          "inband_peak_db": -56.11,
+          "inband_peak_mhz": 2427.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 3,
+          "center_mhz": 2422.0,
+          "mask_mhz": [
+            2412.0,
+            2432.0
+          ],
+          "n_bins": 21,
+          "floor_db": -61.43,
+          "inband_median_db": -60.58,
+          "inband_peak_db": -55.26,
+          "inband_peak_mhz": 2432.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 4,
+          "center_mhz": 2427.0,
+          "mask_mhz": [
+            2417.0,
+            2437.0
+          ],
+          "n_bins": 21,
+          "floor_db": -61.43,
+          "inband_median_db": -59.92,
+          "inband_peak_db": -55.26,
+          "inband_peak_mhz": 2432.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 5,
+          "center_mhz": 2432.0,
+          "mask_mhz": [
+            2422.0,
+            2442.0
+          ],
+          "n_bins": 21,
+          "floor_db": -61.43,
+          "inband_median_db": -57.74,
+          "inband_peak_db": -52.92,
+          "inband_peak_mhz": 2439.0,
+          "occupancy": 0.0476,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 6,
+          "center_mhz": 2437.0,
+          "mask_mhz": [
+            2427.0,
+            2447.0
+          ],
+          "n_bins": 21,
+          "floor_db": -61.43,
+          "inband_median_db": -57.12,
+          "inband_peak_db": -52.92,
+          "inband_peak_mhz": 2439.0,
+          "occupancy": 0.0476,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 7,
+          "center_mhz": 2442.0,
+          "mask_mhz": [
+            2432.0,
+            2452.0
+          ],
+          "n_bins": 21,
+          "floor_db": -61.43,
+          "inband_median_db": -58.59,
+          "inband_peak_db": -52.92,
+          "inband_peak_mhz": 2439.0,
+          "occupancy": 0.0476,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 8,
+          "center_mhz": 2447.0,
+          "mask_mhz": [
+            2437.0,
+            2457.0
+          ],
+          "n_bins": 21,
+          "floor_db": -61.43,
+          "inband_median_db": -61.13,
+          "inband_peak_db": -52.92,
+          "inband_peak_mhz": 2439.0,
+          "occupancy": 0.0476,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 9,
+          "center_mhz": 2452.0,
+          "mask_mhz": [
+            2442.0,
+            2462.0
+          ],
+          "n_bins": 21,
+          "floor_db": -61.43,
+          "inband_median_db": -63.97,
+          "inband_peak_db": -56.1,
+          "inband_peak_mhz": 2454.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 10,
+          "center_mhz": 2457.0,
+          "mask_mhz": [
+            2447.0,
+            2467.0
+          ],
+          "n_bins": 21,
+          "floor_db": -61.43,
+          "inband_median_db": -65.64,
+          "inband_peak_db": -56.1,
+          "inband_peak_mhz": 2454.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 11,
+          "center_mhz": 2462.0,
+          "mask_mhz": [
+            2452.0,
+            2472.0
+          ],
+          "n_bins": 21,
+          "floor_db": -61.43,
+          "inband_median_db": -65.96,
+          "inband_peak_db": -56.1,
+          "inband_peak_mhz": 2454.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 12,
+          "center_mhz": 2467.0,
+          "mask_mhz": [
+            2457.0,
+            2477.0
+          ],
+          "n_bins": 21,
+          "floor_db": -61.43,
+          "inband_median_db": -65.9,
+          "inband_peak_db": -58.4,
+          "inband_peak_mhz": 2459.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 13,
+          "center_mhz": 2472.0,
+          "mask_mhz": [
+            2462.0,
+            2482.0
+          ],
+          "n_bins": 21,
+          "floor_db": -61.43,
+          "inband_median_db": -65.03,
+          "inband_peak_db": -60.02,
+          "inband_peak_mhz": 2470.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "ts": "20260928T191205Z",
+      "config": {
+        "f_lo": 2400,
+        "f_hi": 2484,
+        "lna_db": 24,
+        "vga_db": 20,
+        "bin_hz": 1000000,
+        "amp": 0,
+        "live_ms": 500,
+        "baseband_mhz": 15.0,
+        "sample_rate_mhz": 20
+      },
+      "duration_ms": 91,
+      "floor_db": -63.41,
+      "floor_method": "outside_masks",
+      "quietest_20_db": -71.67,
+      "n_outside": 4,
+      "outside_bins": [
+        {
+          "mhz": 2400.0,
+          "db": -58.98
+        },
+        {
+          "mhz": 2401.0,
+          "db": -73.2
+        },
+        {
+          "mhz": 2483.0,
+          "db": -62.58
+        },
+        {
+          "mhz": 2484.0,
+          "db": -64.24
+        }
+      ],
+      "bin_step_mhz": 1.0,
+      "n_bins": 85,
+      "channels": [
+        {
+          "ch": 1,
+          "center_mhz": 2412.0,
+          "mask_mhz": [
+            2402.0,
+            2422.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.41,
+          "inband_median_db": -61.9,
+          "inband_peak_db": -44.89,
+          "inband_peak_mhz": 2417.0,
+          "occupancy": 0.1429,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2417.0,
+              "db": -44.89,
+              "width_mhz": 2.0,
+              "excess_db": 17.01,
+              "bins_mhz": [
+                2416.0,
+                2417.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2417.0,
+              "db": -44.89,
+              "width_mhz": 2.0,
+              "excess_db": 17.01,
+              "bins_mhz": [
+                2416.0,
+                2417.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 2,
+          "center_mhz": 2417.0,
+          "mask_mhz": [
+            2407.0,
+            2427.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.41,
+          "inband_median_db": -61.68,
+          "inband_peak_db": -44.89,
+          "inband_peak_mhz": 2417.0,
+          "occupancy": 0.1429,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2417.0,
+              "db": -44.89,
+              "width_mhz": 2.0,
+              "excess_db": 16.79,
+              "bins_mhz": [
+                2416.0,
+                2417.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2417.0,
+              "db": -44.89,
+              "width_mhz": 2.0,
+              "excess_db": 16.79,
+              "bins_mhz": [
+                2416.0,
+                2417.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 3,
+          "center_mhz": 2422.0,
+          "mask_mhz": [
+            2412.0,
+            2432.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.41,
+          "inband_median_db": -59.61,
+          "inband_peak_db": -44.89,
+          "inband_peak_mhz": 2417.0,
+          "occupancy": 0.381,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2417.0,
+              "db": -44.89,
+              "width_mhz": 2.0,
+              "excess_db": 14.72,
+              "bins_mhz": [
+                2416.0,
+                2417.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2417.0,
+              "db": -44.89,
+              "width_mhz": 2.0,
+              "excess_db": 14.72,
+              "bins_mhz": [
+                2416.0,
+                2417.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 4,
+          "center_mhz": 2427.0,
+          "mask_mhz": [
+            2417.0,
+            2437.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.41,
+          "inband_median_db": -58.83,
+          "inband_peak_db": -44.89,
+          "inband_peak_mhz": 2417.0,
+          "occupancy": 0.381,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2417.0,
+              "db": -44.89,
+              "width_mhz": 1.0,
+              "excess_db": 13.94,
+              "bins_mhz": [
+                2417.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2417.0,
+              "db": -44.89,
+              "width_mhz": 1.0,
+              "excess_db": 13.94,
+              "bins_mhz": [
+                2417.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 5,
+          "center_mhz": 2432.0,
+          "mask_mhz": [
+            2422.0,
+            2442.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.41,
+          "inband_median_db": -55.89,
+          "inband_peak_db": -49.45,
+          "inband_peak_mhz": 2430.0,
+          "occupancy": 0.381,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "busy"
+        },
+        {
+          "ch": 6,
+          "center_mhz": 2437.0,
+          "mask_mhz": [
+            2427.0,
+            2447.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.41,
+          "inband_median_db": -55.71,
+          "inband_peak_db": -49.45,
+          "inband_peak_mhz": 2430.0,
+          "occupancy": 0.381,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "busy"
+        },
+        {
+          "ch": 7,
+          "center_mhz": 2442.0,
+          "mask_mhz": [
+            2432.0,
+            2452.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.41,
+          "inband_median_db": -59.6,
+          "inband_peak_db": -51.21,
+          "inband_peak_mhz": 2437.0,
+          "occupancy": 0.1905,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 8,
+          "center_mhz": 2447.0,
+          "mask_mhz": [
+            2437.0,
+            2457.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.41,
+          "inband_median_db": -62.75,
+          "inband_peak_db": -51.21,
+          "inband_peak_mhz": 2437.0,
+          "occupancy": 0.1429,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 9,
+          "center_mhz": 2452.0,
+          "mask_mhz": [
+            2442.0,
+            2462.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.41,
+          "inband_median_db": -63.86,
+          "inband_peak_db": -55.54,
+          "inband_peak_mhz": 2442.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 10,
+          "center_mhz": 2457.0,
+          "mask_mhz": [
+            2447.0,
+            2467.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.41,
+          "inband_median_db": -66.19,
+          "inband_peak_db": -57.75,
+          "inband_peak_mhz": 2456.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 11,
+          "center_mhz": 2462.0,
+          "mask_mhz": [
+            2452.0,
+            2472.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.41,
+          "inband_median_db": -66.57,
+          "inband_peak_db": -57.75,
+          "inband_peak_mhz": 2456.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 12,
+          "center_mhz": 2467.0,
+          "mask_mhz": [
+            2457.0,
+            2477.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.41,
+          "inband_median_db": -67.13,
+          "inband_peak_db": -43.09,
+          "inband_peak_mhz": 2475.0,
+          "occupancy": 0.0952,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2475.0,
+              "db": -43.09,
+              "width_mhz": 2.0,
+              "excess_db": 24.04,
+              "bins_mhz": [
+                2475.0,
+                2476.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2475.0,
+              "db": -43.09,
+              "width_mhz": 2.0,
+              "excess_db": 24.04,
+              "bins_mhz": [
+                2475.0,
+                2476.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 13,
+          "center_mhz": 2472.0,
+          "mask_mhz": [
+            2462.0,
+            2482.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.41,
+          "inband_median_db": -68.71,
+          "inband_peak_db": -43.09,
+          "inband_peak_mhz": 2475.0,
+          "occupancy": 0.0952,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2475.0,
+              "db": -43.09,
+              "width_mhz": 2.0,
+              "excess_db": 25.62,
+              "bins_mhz": [
+                2475.0,
+                2476.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2475.0,
+              "db": -43.09,
+              "width_mhz": 2.0,
+              "excess_db": 25.62,
+              "bins_mhz": [
+                2475.0,
+                2476.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "ts": "20260928T191206Z",
+      "config": {
+        "f_lo": 2400,
+        "f_hi": 2484,
+        "lna_db": 24,
+        "vga_db": 20,
+        "bin_hz": 1000000,
+        "amp": 0,
+        "live_ms": 500,
+        "baseband_mhz": 15.0,
+        "sample_rate_mhz": 20
+      },
+      "duration_ms": 91,
+      "floor_db": -63.98,
+      "floor_method": "outside_masks",
+      "quietest_20_db": -71.34,
+      "n_outside": 4,
+      "outside_bins": [
+        {
+          "mhz": 2400.0,
+          "db": -64.5
+        },
+        {
+          "mhz": 2401.0,
+          "db": -57.98
+        },
+        {
+          "mhz": 2483.0,
+          "db": -63.47
+        },
+        {
+          "mhz": 2484.0,
+          "db": -73.46
+        }
+      ],
+      "bin_step_mhz": 1.0,
+      "n_bins": 85,
+      "channels": [
+        {
+          "ch": 1,
+          "center_mhz": 2412.0,
+          "mask_mhz": [
+            2402.0,
+            2422.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.98,
+          "inband_median_db": -62.7,
+          "inband_peak_db": -51.35,
+          "inband_peak_mhz": 2415.0,
+          "occupancy": 0.1905,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 2,
+          "center_mhz": 2417.0,
+          "mask_mhz": [
+            2407.0,
+            2427.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.98,
+          "inband_median_db": -63.77,
+          "inband_peak_db": -51.35,
+          "inband_peak_mhz": 2415.0,
+          "occupancy": 0.1905,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2415.0,
+              "db": -51.35,
+              "width_mhz": 1.0,
+              "excess_db": 12.42,
+              "bins_mhz": [
+                2415.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2415.0,
+              "db": -51.35,
+              "width_mhz": 1.0,
+              "excess_db": 12.42,
+              "bins_mhz": [
+                2415.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 3,
+          "center_mhz": 2422.0,
+          "mask_mhz": [
+            2412.0,
+            2432.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.98,
+          "inband_median_db": -65.65,
+          "inband_peak_db": -51.35,
+          "inband_peak_mhz": 2415.0,
+          "occupancy": 0.0952,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2415.0,
+              "db": -51.35,
+              "width_mhz": 2.0,
+              "excess_db": 14.3,
+              "bins_mhz": [
+                2415.0,
+                2416.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2415.0,
+              "db": -51.35,
+              "width_mhz": 2.0,
+              "excess_db": 14.3,
+              "bins_mhz": [
+                2415.0,
+                2416.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 4,
+          "center_mhz": 2427.0,
+          "mask_mhz": [
+            2417.0,
+            2437.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.98,
+          "inband_median_db": -65.31,
+          "inband_peak_db": -56.72,
+          "inband_peak_mhz": 2434.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 5,
+          "center_mhz": 2432.0,
+          "mask_mhz": [
+            2422.0,
+            2442.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.98,
+          "inband_median_db": -65.31,
+          "inband_peak_db": -56.72,
+          "inband_peak_mhz": 2434.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 6,
+          "center_mhz": 2437.0,
+          "mask_mhz": [
+            2427.0,
+            2447.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.98,
+          "inband_median_db": -63.31,
+          "inband_peak_db": -56.72,
+          "inband_peak_mhz": 2434.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 7,
+          "center_mhz": 2442.0,
+          "mask_mhz": [
+            2432.0,
+            2452.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.98,
+          "inband_median_db": -63.3,
+          "inband_peak_db": -56.72,
+          "inband_peak_mhz": 2434.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 8,
+          "center_mhz": 2447.0,
+          "mask_mhz": [
+            2437.0,
+            2457.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.98,
+          "inband_median_db": -63.77,
+          "inband_peak_db": -56.77,
+          "inband_peak_mhz": 2444.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 9,
+          "center_mhz": 2452.0,
+          "mask_mhz": [
+            2442.0,
+            2462.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.98,
+          "inband_median_db": -65.34,
+          "inband_peak_db": -56.77,
+          "inband_peak_mhz": 2444.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 10,
+          "center_mhz": 2457.0,
+          "mask_mhz": [
+            2447.0,
+            2467.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.98,
+          "inband_median_db": -65.33,
+          "inband_peak_db": -57.22,
+          "inband_peak_mhz": 2464.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 11,
+          "center_mhz": 2462.0,
+          "mask_mhz": [
+            2452.0,
+            2472.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.98,
+          "inband_median_db": -63.7,
+          "inband_peak_db": -57.22,
+          "inband_peak_mhz": 2464.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 12,
+          "center_mhz": 2467.0,
+          "mask_mhz": [
+            2457.0,
+            2477.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.98,
+          "inband_median_db": -63.23,
+          "inband_peak_db": -57.22,
+          "inband_peak_mhz": 2464.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 13,
+          "center_mhz": 2472.0,
+          "mask_mhz": [
+            2462.0,
+            2482.0
+          ],
+          "n_bins": 21,
+          "floor_db": -63.98,
+          "inband_median_db": -62.42,
+          "inband_peak_db": -57.22,
+          "inband_peak_mhz": 2464.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "ts": "20260928T191206Z",
+      "config": {
+        "f_lo": 2400,
+        "f_hi": 2484,
+        "lna_db": 24,
+        "vga_db": 20,
+        "bin_hz": 1000000,
+        "amp": 0,
+        "live_ms": 500,
+        "baseband_mhz": 15.0,
+        "sample_rate_mhz": 20
+      },
+      "duration_ms": 92,
+      "floor_db": -62.28,
+      "floor_method": "outside_masks",
+      "quietest_20_db": -67.57,
+      "n_outside": 4,
+      "outside_bins": [
+        {
+          "mhz": 2400.0,
+          "db": -57.42
+        },
+        {
+          "mhz": 2401.0,
+          "db": -62.02
+        },
+        {
+          "mhz": 2483.0,
+          "db": -62.53
+        },
+        {
+          "mhz": 2484.0,
+          "db": -65.09
+        }
+      ],
+      "bin_step_mhz": 1.0,
+      "n_bins": 85,
+      "channels": [
+        {
+          "ch": 1,
+          "center_mhz": 2412.0,
+          "mask_mhz": [
+            2402.0,
+            2422.0
+          ],
+          "n_bins": 21,
+          "floor_db": -62.28,
+          "inband_median_db": -62.86,
+          "inband_peak_db": -45.8,
+          "inband_peak_mhz": 2412.0,
+          "occupancy": 0.1905,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2412.0,
+              "db": -45.8,
+              "width_mhz": 2.0,
+              "excess_db": 17.06,
+              "bins_mhz": [
+                2411.0,
+                2412.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2412.0,
+              "db": -45.8,
+              "width_mhz": 2.0,
+              "excess_db": 17.06,
+              "bins_mhz": [
+                2411.0,
+                2412.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 2,
+          "center_mhz": 2417.0,
+          "mask_mhz": [
+            2407.0,
+            2427.0
+          ],
+          "n_bins": 21,
+          "floor_db": -62.28,
+          "inband_median_db": -62.82,
+          "inband_peak_db": -45.8,
+          "inband_peak_mhz": 2412.0,
+          "occupancy": 0.1905,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2412.0,
+              "db": -45.8,
+              "width_mhz": 2.0,
+              "excess_db": 17.02,
+              "bins_mhz": [
+                2411.0,
+                2412.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2412.0,
+              "db": -45.8,
+              "width_mhz": 2.0,
+              "excess_db": 17.02,
+              "bins_mhz": [
+                2411.0,
+                2412.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 3,
+          "center_mhz": 2422.0,
+          "mask_mhz": [
+            2412.0,
+            2432.0
+          ],
+          "n_bins": 21,
+          "floor_db": -62.28,
+          "inband_median_db": -62.82,
+          "inband_peak_db": -45.8,
+          "inband_peak_mhz": 2412.0,
+          "occupancy": 0.0952,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2412.0,
+              "db": -45.8,
+              "width_mhz": 1.0,
+              "excess_db": 17.02,
+              "bins_mhz": [
+                2412.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2412.0,
+              "db": -45.8,
+              "width_mhz": 1.0,
+              "excess_db": 17.02,
+              "bins_mhz": [
+                2412.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 4,
+          "center_mhz": 2427.0,
+          "mask_mhz": [
+            2417.0,
+            2437.0
+          ],
+          "n_bins": 21,
+          "floor_db": -62.28,
+          "inband_median_db": -62.07,
+          "inband_peak_db": -50.5,
+          "inband_peak_mhz": 2433.0,
+          "occupancy": 0.1429,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 5,
+          "center_mhz": 2432.0,
+          "mask_mhz": [
+            2422.0,
+            2442.0
+          ],
+          "n_bins": 21,
+          "floor_db": -62.28,
+          "inband_median_db": -57.03,
+          "inband_peak_db": -50.5,
+          "inband_peak_mhz": 2433.0,
+          "occupancy": 0.2857,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "busy"
+        },
+        {
+          "ch": 6,
+          "center_mhz": 2437.0,
+          "mask_mhz": [
+            2427.0,
+            2447.0
+          ],
+          "n_bins": 21,
+          "floor_db": -62.28,
+          "inband_median_db": -55.05,
+          "inband_peak_db": -43.04,
+          "inband_peak_mhz": 2445.0,
+          "occupancy": 0.4286,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2445.0,
+              "db": -43.04,
+              "width_mhz": 1.0,
+              "excess_db": 12.01,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2445.0,
+              "db": -43.04,
+              "width_mhz": 1.0,
+              "excess_db": 12.01,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 7,
+          "center_mhz": 2442.0,
+          "mask_mhz": [
+            2432.0,
+            2452.0
+          ],
+          "n_bins": 21,
+          "floor_db": -62.28,
+          "inband_median_db": -56.13,
+          "inband_peak_db": -43.04,
+          "inband_peak_mhz": 2445.0,
+          "occupancy": 0.4286,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2445.0,
+              "db": -43.04,
+              "width_mhz": 1.0,
+              "excess_db": 13.09,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2445.0,
+              "db": -43.04,
+              "width_mhz": 1.0,
+              "excess_db": 13.09,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 8,
+          "center_mhz": 2447.0,
+          "mask_mhz": [
+            2437.0,
+            2457.0
+          ],
+          "n_bins": 21,
+          "floor_db": -62.28,
+          "inband_median_db": -56.91,
+          "inband_peak_db": -43.04,
+          "inband_peak_mhz": 2445.0,
+          "occupancy": 0.381,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2445.0,
+              "db": -43.04,
+              "width_mhz": 1.0,
+              "excess_db": 13.87,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2445.0,
+              "db": -43.04,
+              "width_mhz": 1.0,
+              "excess_db": 13.87,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 9,
+          "center_mhz": 2452.0,
+          "mask_mhz": [
+            2442.0,
+            2462.0
+          ],
+          "n_bins": 21,
+          "floor_db": -62.28,
+          "inband_median_db": -60.18,
+          "inband_peak_db": -43.04,
+          "inband_peak_mhz": 2445.0,
+          "occupancy": 0.2381,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2445.0,
+              "db": -43.04,
+              "width_mhz": 1.0,
+              "excess_db": 17.14,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2445.0,
+              "db": -43.04,
+              "width_mhz": 1.0,
+              "excess_db": 17.14,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 10,
+          "center_mhz": 2457.0,
+          "mask_mhz": [
+            2447.0,
+            2467.0
+          ],
+          "n_bins": 21,
+          "floor_db": -62.28,
+          "inband_median_db": -61.84,
+          "inband_peak_db": -53.94,
+          "inband_peak_mhz": 2455.0,
+          "occupancy": 0.0476,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 11,
+          "center_mhz": 2462.0,
+          "mask_mhz": [
+            2452.0,
+            2472.0
+          ],
+          "n_bins": 21,
+          "floor_db": -62.28,
+          "inband_median_db": -61.84,
+          "inband_peak_db": -53.94,
+          "inband_peak_mhz": 2455.0,
+          "occupancy": 0.0476,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 12,
+          "center_mhz": 2467.0,
+          "mask_mhz": [
+            2457.0,
+            2477.0
+          ],
+          "n_bins": 21,
+          "floor_db": -62.28,
+          "inband_median_db": -63.75,
+          "inband_peak_db": -55.37,
+          "inband_peak_mhz": 2470.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 13,
+          "center_mhz": 2472.0,
+          "mask_mhz": [
+            2462.0,
+            2482.0
+          ],
+          "n_bins": 21,
+          "floor_db": -62.28,
+          "inband_median_db": -63.75,
+          "inband_peak_db": -55.37,
+          "inband_peak_mhz": 2470.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "ts": "20260928T191206Z",
+      "config": {
+        "f_lo": 2400,
+        "f_hi": 2484,
+        "lna_db": 24,
+        "vga_db": 20,
+        "bin_hz": 1000000,
+        "amp": 0,
+        "live_ms": 500,
+        "baseband_mhz": 15.0,
+        "sample_rate_mhz": 20
+      },
+      "duration_ms": 92,
+      "floor_db": -60.75,
+      "floor_method": "outside_masks",
+      "quietest_20_db": -69.56,
+      "n_outside": 4,
+      "outside_bins": [
+        {
+          "mhz": 2400.0,
+          "db": -60.68
+        },
+        {
+          "mhz": 2401.0,
+          "db": -72.17
+        },
+        {
+          "mhz": 2483.0,
+          "db": -60.81
+        },
+        {
+          "mhz": 2484.0,
+          "db": -60.58
+        }
+      ],
+      "bin_step_mhz": 1.0,
+      "n_bins": 85,
+      "channels": [
+        {
+          "ch": 1,
+          "center_mhz": 2412.0,
+          "mask_mhz": [
+            2402.0,
+            2422.0
+          ],
+          "n_bins": 21,
+          "floor_db": -60.75,
+          "inband_median_db": -60.44,
+          "inband_peak_db": -34.58,
+          "inband_peak_mhz": 2406.0,
+          "occupancy": 0.4762,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [
+            {
+              "mhz": 2406.0,
+              "db": -34.58,
+              "width_mhz": 5.0,
+              "excess_db": 25.86,
+              "bins_mhz": [
+                2405.0,
+                2406.0,
+                2407.0,
+                2408.0,
+                2409.0
+              ]
+            },
+            {
+              "mhz": 2416.0,
+              "db": -37.35,
+              "width_mhz": 5.0,
+              "excess_db": 23.09,
+              "bins_mhz": [
+                2415.0,
+                2416.0,
+                2417.0,
+                2418.0,
+                2419.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "busy"
+        },
+        {
+          "ch": 2,
+          "center_mhz": 2417.0,
+          "mask_mhz": [
+            2407.0,
+            2427.0
+          ],
+          "n_bins": 21,
+          "floor_db": -60.75,
+          "inband_median_db": -61.58,
+          "inband_peak_db": -36.58,
+          "inband_peak_mhz": 2408.0,
+          "occupancy": 0.381,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [
+            {
+              "mhz": 2408.0,
+              "db": -36.58,
+              "width_mhz": 3.0,
+              "excess_db": 25.0,
+              "bins_mhz": [
+                2407.0,
+                2408.0,
+                2409.0
+              ]
+            },
+            {
+              "mhz": 2416.0,
+              "db": -37.35,
+              "width_mhz": 5.0,
+              "excess_db": 24.23,
+              "bins_mhz": [
+                2415.0,
+                2416.0,
+                2417.0,
+                2418.0,
+                2419.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "busy"
+        },
+        {
+          "ch": 3,
+          "center_mhz": 2422.0,
+          "mask_mhz": [
+            2412.0,
+            2432.0
+          ],
+          "n_bins": 21,
+          "floor_db": -60.75,
+          "inband_median_db": -60.95,
+          "inband_peak_db": -37.35,
+          "inband_peak_mhz": 2416.0,
+          "occupancy": 0.2857,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2432.0,
+              "db": -43.86,
+              "width_mhz": 1.0,
+              "excess_db": 17.09,
+              "bins_mhz": [
+                2432.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2416.0,
+              "db": -37.35,
+              "width_mhz": 5.0,
+              "excess_db": 23.6,
+              "bins_mhz": [
+                2415.0,
+                2416.0,
+                2417.0,
+                2418.0,
+                2419.0
+              ]
+            },
+            {
+              "mhz": 2432.0,
+              "db": -43.86,
+              "width_mhz": 1.0,
+              "excess_db": 17.09,
+              "bins_mhz": [
+                2432.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "busy"
+        },
+        {
+          "ch": 4,
+          "center_mhz": 2427.0,
+          "mask_mhz": [
+            2417.0,
+            2437.0
+          ],
+          "n_bins": 21,
+          "floor_db": -60.75,
+          "inband_median_db": -54.65,
+          "inband_peak_db": -29.19,
+          "inband_peak_mhz": 2435.0,
+          "occupancy": 0.381,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2417.0,
+              "db": -39.11,
+              "width_mhz": 2.0,
+              "excess_db": 15.54,
+              "bins_mhz": [
+                2417.0,
+                2418.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2417.0,
+              "db": -39.11,
+              "width_mhz": 2.0,
+              "excess_db": 15.54,
+              "bins_mhz": [
+                2417.0,
+                2418.0
+              ]
+            },
+            {
+              "mhz": 2435.0,
+              "db": -29.19,
+              "width_mhz": 3.0,
+              "excess_db": 25.46,
+              "bins_mhz": [
+                2435.0,
+                2436.0,
+                2437.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "busy"
+        },
+        {
+          "ch": 5,
+          "center_mhz": 2432.0,
+          "mask_mhz": [
+            2422.0,
+            2442.0
+          ],
+          "n_bins": 21,
+          "floor_db": -60.75,
+          "inband_median_db": -57.46,
+          "inband_peak_db": -27.96,
+          "inband_peak_mhz": 2438.0,
+          "occupancy": 0.3333,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2433.0,
+              "db": -43.76,
+              "width_mhz": 2.0,
+              "excess_db": 13.7,
+              "bins_mhz": [
+                2432.0,
+                2433.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2433.0,
+              "db": -43.76,
+              "width_mhz": 2.0,
+              "excess_db": 13.7,
+              "bins_mhz": [
+                2432.0,
+                2433.0
+              ]
+            },
+            {
+              "mhz": 2438.0,
+              "db": -27.96,
+              "width_mhz": 5.0,
+              "excess_db": 29.5,
+              "bins_mhz": [
+                2435.0,
+                2436.0,
+                2437.0,
+                2438.0,
+                2439.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "busy"
+        },
+        {
+          "ch": 6,
+          "center_mhz": 2437.0,
+          "mask_mhz": [
+            2427.0,
+            2447.0
+          ],
+          "n_bins": 21,
+          "floor_db": -60.75,
+          "inband_median_db": -54.23,
+          "inband_peak_db": -27.96,
+          "inband_peak_mhz": 2438.0,
+          "occupancy": 0.381,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2445.0,
+              "db": -36.22,
+              "width_mhz": 1.0,
+              "excess_db": 18.01,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2438.0,
+              "db": -27.96,
+              "width_mhz": 5.0,
+              "excess_db": 26.27,
+              "bins_mhz": [
+                2435.0,
+                2436.0,
+                2437.0,
+                2438.0,
+                2439.0
+              ]
+            },
+            {
+              "mhz": 2445.0,
+              "db": -36.22,
+              "width_mhz": 1.0,
+              "excess_db": 18.01,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "busy"
+        },
+        {
+          "ch": 7,
+          "center_mhz": 2442.0,
+          "mask_mhz": [
+            2432.0,
+            2452.0
+          ],
+          "n_bins": 21,
+          "floor_db": -60.75,
+          "inband_median_db": -55.09,
+          "inband_peak_db": -27.96,
+          "inband_peak_mhz": 2438.0,
+          "occupancy": 0.381,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2445.0,
+              "db": -36.22,
+              "width_mhz": 1.0,
+              "excess_db": 18.87,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2438.0,
+              "db": -27.96,
+              "width_mhz": 5.0,
+              "excess_db": 27.13,
+              "bins_mhz": [
+                2435.0,
+                2436.0,
+                2437.0,
+                2438.0,
+                2439.0
+              ]
+            },
+            {
+              "mhz": 2445.0,
+              "db": -36.22,
+              "width_mhz": 1.0,
+              "excess_db": 18.87,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "busy"
+        },
+        {
+          "ch": 8,
+          "center_mhz": 2447.0,
+          "mask_mhz": [
+            2437.0,
+            2457.0
+          ],
+          "n_bins": 21,
+          "floor_db": -60.75,
+          "inband_median_db": -58.64,
+          "inband_peak_db": -27.96,
+          "inband_peak_mhz": 2438.0,
+          "occupancy": 0.1905,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2445.0,
+              "db": -36.22,
+              "width_mhz": 1.0,
+              "excess_db": 22.42,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2438.0,
+              "db": -27.96,
+              "width_mhz": 3.0,
+              "excess_db": 30.68,
+              "bins_mhz": [
+                2437.0,
+                2438.0,
+                2439.0
+              ]
+            },
+            {
+              "mhz": 2445.0,
+              "db": -36.22,
+              "width_mhz": 1.0,
+              "excess_db": 22.42,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "busy"
+        },
+        {
+          "ch": 9,
+          "center_mhz": 2452.0,
+          "mask_mhz": [
+            2442.0,
+            2462.0
+          ],
+          "n_bins": 21,
+          "floor_db": -60.75,
+          "inband_median_db": -59.05,
+          "inband_peak_db": -36.22,
+          "inband_peak_mhz": 2445.0,
+          "occupancy": 0.0952,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2445.0,
+              "db": -36.22,
+              "width_mhz": 1.0,
+              "excess_db": 22.83,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2445.0,
+              "db": -36.22,
+              "width_mhz": 1.0,
+              "excess_db": 22.83,
+              "bins_mhz": [
+                2445.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 10,
+          "center_mhz": 2457.0,
+          "mask_mhz": [
+            2447.0,
+            2467.0
+          ],
+          "n_bins": 21,
+          "floor_db": -60.75,
+          "inband_median_db": -60.38,
+          "inband_peak_db": -51.35,
+          "inband_peak_mhz": 2459.0,
+          "occupancy": 0.0476,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 11,
+          "center_mhz": 2462.0,
+          "mask_mhz": [
+            2452.0,
+            2472.0
+          ],
+          "n_bins": 21,
+          "floor_db": -60.75,
+          "inband_median_db": -61.54,
+          "inband_peak_db": -51.35,
+          "inband_peak_mhz": 2459.0,
+          "occupancy": 0.0476,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        },
+        {
+          "ch": 12,
+          "center_mhz": 2467.0,
+          "mask_mhz": [
+            2457.0,
+            2477.0
+          ],
+          "n_bins": 21,
+          "floor_db": -60.75,
+          "inband_median_db": -64.11,
+          "inband_peak_db": -51.35,
+          "inband_peak_mhz": 2459.0,
+          "occupancy": 0.0476,
+          "parasite": true,
+          "parasites": [
+            {
+              "mhz": 2459.0,
+              "db": -51.35,
+              "width_mhz": 1.0,
+              "excess_db": 12.76,
+              "bins_mhz": [
+                2459.0
+              ]
+            }
+          ],
+          "hot_runs": [
+            {
+              "mhz": 2459.0,
+              "db": -51.35,
+              "width_mhz": 1.0,
+              "excess_db": 12.76,
+              "bins_mhz": [
+                2459.0
+              ]
+            }
+          ],
+          "barrage": false,
+          "label": "parasite"
+        },
+        {
+          "ch": 13,
+          "center_mhz": 2472.0,
+          "mask_mhz": [
+            2462.0,
+            2482.0
+          ],
+          "n_bins": 21,
+          "floor_db": -60.75,
+          "inband_median_db": -63.68,
+          "inband_peak_db": -56.2,
+          "inband_peak_mhz": 2465.0,
+          "occupancy": 0.0,
+          "parasite": false,
+          "parasites": [],
+          "hot_runs": [],
+          "barrage": false,
+          "label": "quiet"
+        }
+      ]
+    }
+  ],
+  "median": {
+    "method": "bin-wise median spectrum, scored with the same rules",
+    "floor_db": -61.66,
+    "floor_method": "outside_masks",
+    "quietest_20_db": -65.76,
+    "n_outside": 4,
+    "outside_bins": [
+      {
+        "mhz": 2400.0,
+        "db": -60.78
+      },
+      {
+        "mhz": 2401.0,
+        "db": -60.39
+      },
+      {
+        "mhz": 2483.0,
+        "db": -62.55
+      },
+      {
+        "mhz": 2484.0,
+        "db": -63.63
+      }
+    ],
+    "bin_step_mhz": 1.0,
+    "n_bins": 85,
+    "channels": [
+      {
+        "ch": 1,
+        "center_mhz": 2412.0,
+        "mask_mhz": [
+          2402.0,
+          2422.0
+        ],
+        "n_bins": 21,
+        "floor_db": -61.66,
+        "inband_median_db": -62.01,
+        "inband_peak_db": -56.97,
+        "inband_peak_mhz": 2416.0,
+        "occupancy": 0.0,
+        "parasite": false,
+        "parasites": [],
+        "hot_runs": [],
+        "barrage": false,
+        "label": "quiet"
+      },
+      {
+        "ch": 2,
+        "center_mhz": 2417.0,
+        "mask_mhz": [
+          2407.0,
+          2427.0
+        ],
+        "n_bins": 21,
+        "floor_db": -61.66,
+        "inband_median_db": -62.01,
+        "inband_peak_db": -56.97,
+        "inband_peak_mhz": 2416.0,
+        "occupancy": 0.0,
+        "parasite": false,
+        "parasites": [],
+        "hot_runs": [],
+        "barrage": false,
+        "label": "quiet"
+      },
+      {
+        "ch": 3,
+        "center_mhz": 2422.0,
+        "mask_mhz": [
+          2412.0,
+          2432.0
+        ],
+        "n_bins": 21,
+        "floor_db": -61.66,
+        "inband_median_db": -61.66,
+        "inband_peak_db": -55.16,
+        "inband_peak_mhz": 2432.0,
+        "occupancy": 0.0,
+        "parasite": false,
+        "parasites": [],
+        "hot_runs": [],
+        "barrage": false,
+        "label": "quiet"
+      },
+      {
+        "ch": 4,
+        "center_mhz": 2427.0,
+        "mask_mhz": [
+          2417.0,
+          2437.0
+        ],
+        "n_bins": 21,
+        "floor_db": -61.66,
+        "inband_median_db": -61.37,
+        "inband_peak_db": -55.16,
+        "inband_peak_mhz": 2432.0,
+        "occupancy": 0.0,
+        "parasite": false,
+        "parasites": [],
+        "hot_runs": [],
+        "barrage": false,
+        "label": "quiet"
+      },
+      {
+        "ch": 5,
+        "center_mhz": 2432.0,
+        "mask_mhz": [
+          2422.0,
+          2442.0
+        ],
+        "n_bins": 21,
+        "floor_db": -61.66,
+        "inband_median_db": -58.91,
+        "inband_peak_db": -55.16,
+        "inband_peak_mhz": 2432.0,
+        "occupancy": 0.0,
+        "parasite": false,
+        "parasites": [],
+        "hot_runs": [],
+        "barrage": false,
+        "label": "quiet"
+      },
+      {
+        "ch": 6,
+        "center_mhz": 2437.0,
+        "mask_mhz": [
+          2427.0,
+          2447.0
+        ],
+        "n_bins": 21,
+        "floor_db": -61.66,
+        "inband_median_db": -57.98,
+        "inband_peak_db": -53.77,
+        "inband_peak_mhz": 2445.0,
+        "occupancy": 0.0,
+        "parasite": false,
+        "parasites": [],
+        "hot_runs": [],
+        "barrage": false,
+        "label": "quiet"
+      },
+      {
+        "ch": 7,
+        "center_mhz": 2442.0,
+        "mask_mhz": [
+          2432.0,
+          2452.0
+        ],
+        "n_bins": 21,
+        "floor_db": -61.66,
+        "inband_median_db": -57.98,
+        "inband_peak_db": -53.77,
+        "inband_peak_mhz": 2445.0,
+        "occupancy": 0.0,
+        "parasite": false,
+        "parasites": [],
+        "hot_runs": [],
+        "barrage": false,
+        "label": "quiet"
+      },
+      {
+        "ch": 8,
+        "center_mhz": 2447.0,
+        "mask_mhz": [
+          2437.0,
+          2457.0
+        ],
+        "n_bins": 21,
+        "floor_db": -61.66,
+        "inband_median_db": -60.8,
+        "inband_peak_db": -53.77,
+        "inband_peak_mhz": 2445.0,
+        "occupancy": 0.0,
+        "parasite": false,
+        "parasites": [],
+        "hot_runs": [],
+        "barrage": false,
+        "label": "quiet"
+      },
+      {
+        "ch": 9,
+        "center_mhz": 2452.0,
+        "mask_mhz": [
+          2442.0,
+          2462.0
+        ],
+        "n_bins": 21,
+        "floor_db": -61.66,
+        "inband_median_db": -63.04,
+        "inband_peak_db": -53.77,
+        "inband_peak_mhz": 2445.0,
+        "occupancy": 0.0,
+        "parasite": false,
+        "parasites": [],
+        "hot_runs": [],
+        "barrage": false,
+        "label": "quiet"
+      },
+      {
+        "ch": 10,
+        "center_mhz": 2457.0,
+        "mask_mhz": [
+          2447.0,
+          2467.0
+        ],
+        "n_bins": 21,
+        "floor_db": -61.66,
+        "inband_median_db": -63.59,
+        "inband_peak_db": -56.98,
+        "inband_peak_mhz": 2459.0,
+        "occupancy": 0.0,
+        "parasite": false,
+        "parasites": [],
+        "hot_runs": [],
+        "barrage": false,
+        "label": "quiet"
+      },
+      {
+        "ch": 11,
+        "center_mhz": 2462.0,
+        "mask_mhz": [
+          2452.0,
+          2472.0
+        ],
+        "n_bins": 21,
+        "floor_db": -61.66,
+        "inband_median_db": -64.11,
+        "inband_peak_db": -56.98,
+        "inband_peak_mhz": 2459.0,
+        "occupancy": 0.0,
+        "parasite": false,
+        "parasites": [],
+        "hot_runs": [],
+        "barrage": false,
+        "label": "quiet"
+      },
+      {
+        "ch": 12,
+        "center_mhz": 2467.0,
+        "mask_mhz": [
+          2457.0,
+          2477.0
+        ],
+        "n_bins": 21,
+        "floor_db": -61.66,
+        "inband_median_db": -64.47,
+        "inband_peak_db": -56.98,
+        "inband_peak_mhz": 2459.0,
+        "occupancy": 0.0,
+        "parasite": false,
+        "parasites": [],
+        "hot_runs": [],
+        "barrage": false,
+        "label": "quiet"
+      },
+      {
+        "ch": 13,
+        "center_mhz": 2472.0,
+        "mask_mhz": [
+          2462.0,
+          2482.0
+        ],
+        "n_bins": 21,
+        "floor_db": -61.66,
+        "inband_median_db": -64.56,
+        "inband_peak_db": -60.5,
+        "inband_peak_mhz": 2470.0,
+        "occupancy": 0.0,
+        "parasite": false,
+        "parasites": [],
+        "hot_runs": [],
+        "barrage": false,
+        "label": "quiet"
+      }
+    ],
+    "sweep_counts": [
+      {
+        "ch": 1,
+        "quiet": 3,
+        "busy": 1,
+        "parasite": 2,
+        "barrage": 0,
+        "median_occupancy": 0.1667,
+        "median_inband_median_db": -62.3,
+        "median_inband_peak_db": -48.58
+      },
+      {
+        "ch": 2,
+        "quiet": 2,
+        "busy": 1,
+        "parasite": 3,
+        "barrage": 0,
+        "median_occupancy": 0.1667,
+        "median_inband_median_db": -61.77,
+        "median_inband_peak_db": -48.58
+      },
+      {
+        "ch": 3,
+        "quiet": 2,
+        "busy": 1,
+        "parasite": 3,
+        "barrage": 0,
+        "median_occupancy": 0.0952,
+        "median_inband_median_db": -61.89,
+        "median_inband_peak_db": -48.58
+      },
+      {
+        "ch": 4,
+        "quiet": 4,
+        "busy": 1,
+        "parasite": 1,
+        "barrage": 0,
+        "median_occupancy": 0.0714,
+        "median_inband_median_db": -61.0,
+        "median_inband_peak_db": -52.88
+      },
+      {
+        "ch": 5,
+        "quiet": 3,
+        "busy": 3,
+        "parasite": 0,
+        "barrage": 0,
+        "median_occupancy": 0.1667,
+        "median_inband_median_db": -57.6,
+        "median_inband_peak_db": -51.71
+      },
+      {
+        "ch": 6,
+        "quiet": 3,
+        "busy": 2,
+        "parasite": 1,
+        "barrage": 0,
+        "median_occupancy": 0.2381,
+        "median_inband_median_db": -56.41,
+        "median_inband_peak_db": -50.1
+      },
+      {
+        "ch": 7,
+        "quiet": 4,
+        "busy": 1,
+        "parasite": 1,
+        "barrage": 0,
+        "median_occupancy": 0.1429,
+        "median_inband_median_db": -59.09,
+        "median_inband_peak_db": -50.98
+      },
+      {
+        "ch": 8,
+        "quiet": 4,
+        "busy": 1,
+        "parasite": 1,
+        "barrage": 0,
+        "median_occupancy": 0.1191,
+        "median_inband_median_db": -60.81,
+        "median_inband_peak_db": -50.98
+      },
+      {
+        "ch": 9,
+        "quiet": 4,
+        "busy": 0,
+        "parasite": 2,
+        "barrage": 0,
+        "median_occupancy": 0.0476,
+        "median_inband_median_db": -62.16,
+        "median_inband_peak_db": -53.14
+      },
+      {
+        "ch": 10,
+        "quiet": 6,
+        "busy": 0,
+        "parasite": 0,
+        "barrage": 0,
+        "median_occupancy": 0.0238,
+        "median_inband_median_db": -63.59,
+        "median_inband_peak_db": -55.02
+      },
+      {
+        "ch": 11,
+        "quiet": 6,
+        "busy": 0,
+        "parasite": 0,
+        "barrage": 0,
+        "median_occupancy": 0.0238,
+        "median_inband_median_db": -62.77,
+        "median_inband_peak_db": -55.02
+      },
+      {
+        "ch": 12,
+        "quiet": 3,
+        "busy": 0,
+        "parasite": 3,
+        "barrage": 0,
+        "median_occupancy": 0.0238,
+        "median_inband_median_db": -64.62,
+        "median_inband_peak_db": -53.36
+      },
+      {
+        "ch": 13,
+        "quiet": 5,
+        "busy": 0,
+        "parasite": 1,
+        "barrage": 0,
+        "median_occupancy": 0.0,
+        "median_inband_median_db": -64.39,
+        "median_inband_peak_db": -56.71
+      }
+    ]
+  }
+}
